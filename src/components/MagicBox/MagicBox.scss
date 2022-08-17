@@ -1,0 +1,8 @@
+.magic-box{
+    $box-size: 200px;
+    width: $box-size;
+    height: $box-size;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 20px;
+}
