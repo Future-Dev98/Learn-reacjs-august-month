@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link } from 'react-router-dom';
+import {NavLink, Link } from 'react-router-dom';
 import './style.scss';
 
 function Menu(props) {
@@ -7,10 +7,10 @@ function Menu(props) {
         <div className='menu'>
             <nav>
                 <ul>
-                    <li><Link to="count">Count</Link></li>
-                    <li><Link to="magic_box">Magic Box</Link></li>
-                    <li><Link to="clock">Clock</Link></li>
-                    <li><Link to="todo">Todo</Link></li>
+                    <li><NavLink to="count" >Count</NavLink></li>
+                    <li><NavLink to="magic_box">Magic Box</NavLink></li>
+                    <li><NavLink to="clock">Clock</NavLink></li>
+                    <li><NavLink to="todo">Todo</NavLink></li>
                 </ul>
             </nav>
         </div>
