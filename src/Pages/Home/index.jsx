@@ -11,7 +11,6 @@ function Home(props) {
     return (
         <div>
             <Posts />
-            <MagicBox />
         </div>
     );
 }

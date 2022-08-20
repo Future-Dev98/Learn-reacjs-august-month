@@ -1,11 +1,13 @@
 import React from 'react';
+import Todo from '../../../Features/Todo';
 import Router from '../../Router';
+import './style.scss';
 
 function Main() {
     return (
-        <div>
+        <main>
             <Router />
-        </div>
+        </main>
     );
 }
 
