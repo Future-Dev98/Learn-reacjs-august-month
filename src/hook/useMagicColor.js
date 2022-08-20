@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 
 function randomColor (currentColor) {
     const colorList = ['green', 'red', 'yellow', 'black', 'toronto', 'blue', 'grey'];
@@ -8,7 +7,6 @@ function randomColor (currentColor) {
     if (newIndex === currentIndex) {
         newIndex = Math.trunc(Math.random() * colorList.length);
     }
-    console.log(colorList[newIndex])
     return colorList[newIndex];
 }
 function useMagicColor() {

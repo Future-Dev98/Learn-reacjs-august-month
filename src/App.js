@@ -1,17 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Count from './components/Count';
+import Header from './components/Section/Header';
+import Main from './components/Section/Main';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Count/>
-      </header>
+      <Header/>
+      <Main />
     </div>
   );
 }
