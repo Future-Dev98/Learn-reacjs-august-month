@@ -3,6 +3,7 @@ import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import queryString from 'query-string';
 import TodoForm from '../../TodoForm';
 import TodoItem from '../../TodoItem';
+import CustomForm from '../../CustomForm';
 
 function ListPage(props) {
     const [todoList, setTodoList] = useState([
@@ -79,19 +80,12 @@ function ListPage(props) {
 
     //submit form
     const handleOnSubmit = (formValues) => {
-        const newTodoList = [...todoList];
-        newTodoList.push({
-            id:4,
-            ...formValues
-        })
-
-        setTodoList(newTodoList)
-        setStatusList(newTodoList);
+       console.log('Form value:' + formValues)
     }
 
     return (
         <div>
-            <TodoForm onSubmit={handleOnSubmit}/>
+            <CustomForm onSubmit={handleOnSubmit} />
             <TodoItem todoList={statusList} onTodoClick={handleRemoveItem} />
             <button onClick={handleShowALL}>Show All</button>
             <button onClick={handleShowCompleted}>Show Completed</button>
