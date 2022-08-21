@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import queryString from 'query-string';
 import TodoForm from '../../TodoForm';
 import TodoItem from '../../TodoItem';
 
@@ -22,11 +23,14 @@ function ListPage(props) {
         }
     ]);
     const location = useLocation();
+    const history = useHistory();
+    const match = useRouteMatch();
     const [statusList, setStatusList] = useState(todoList);
     const [filteredStats, setFilteredStatus] = useState(() => {
-        const params = querySt
-        return 'all';
-    })
+        const params = queryString.parse(location.search);
+        const newTodoList = params.status ? todoList.filter(todo => todo.status === params.status) : todoList;
+        setStatusList(newTodoList);
+    });
     const handleChangeStatus = (todo, idx) => {
         const newTodoList = [...todoList];
         newTodoList[idx] = {
@@ -47,17 +51,31 @@ function ListPage(props) {
     const handleShowALL = () => {
         const newTodoList = [...todoList];
         setStatusList(newTodoList);
-        
+        const queryParams = {status: 'all'};
+        history.push({
+            pathname: match.path,
+            search: queryString.stringify(queryParams),
+        });
     }
 
     const handleShowCompleted = () => {
         const newTodoList = todoList.filter( todo =>  todo.status === 'completed');
         setStatusList(newTodoList);
+        const queryParams = {status: 'completed'};
+        history.push({
+            pathname: match.path,
+            search: queryString.stringify(queryParams),
+        });
     }
 
     const handleShowNew = () => {
         const newTodoList = todoList.filter( todo =>  todo.status === 'new');
         setStatusList(newTodoList);
+        const queryParams = {status: 'new'};
+        history.push({
+            pathname: match.path,
+            search: queryString.stringify(queryParams),
+        });
     }
 
     //submit form

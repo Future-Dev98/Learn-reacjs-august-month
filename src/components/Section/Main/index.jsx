@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from '../../../Features/Todo';
 import Router from '../../Router';
 import './style.scss';
 
