@@ -69,8 +69,7 @@ function ListPage(props) {
     }
 
     const handleShowNew = () => {
-        const newTodoList = todoList.filter( todo =>  todo.status === 'new');
-        setStatusList(newTodoList);
+       
         const queryParams = {status: 'new'};
         history.push({
             pathname: match.path,
