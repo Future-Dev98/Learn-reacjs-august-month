@@ -7,6 +7,7 @@ import Clock from '../Clock';
 import Todo from '../../Features/Todo';
 import NotFound from '../../Pages/NotFound';
 import Home from '../../Pages/Home';
+import Reducer from '../../hook/Reducer';
 
 function Router() {
     return (
@@ -20,6 +21,7 @@ function Router() {
                 <Route path="/post_list" component={PostList} exact />
                 <Route path="/clock" component={Clock } exact />
                 <Route path="/todo" component={Todo} exact />
+                <Route path="/reducer" component={Reducer} />
                 <Route component={NotFound} />
             </Switch>
         {/* Switch chỉ nhận route đầu tiên được khai báo */}

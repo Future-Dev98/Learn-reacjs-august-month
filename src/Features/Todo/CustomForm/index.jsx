@@ -21,7 +21,11 @@ function CustomForm(props) {
     });
 
     const handleOnSubmit = (values) => {
-        console.log('Todo Form:' + values);
+        const {onSubmit} = props;
+        if(onSubmit) {
+            onSubmit(values);
+        }
+        form.reset();
     }
     return (
         <form onSubmit={form.handleSubmit(handleOnSubmit)}>
