@@ -8,6 +8,7 @@ import Todo from '../../Features/Todo';
 import NotFound from '../../Pages/NotFound';
 import Home from '../../Pages/Home';
 import Reducer from '../../hook/Reducer';
+import CallBack from '../../hook/CallBack';
 
 function Router() {
     return (
@@ -22,6 +23,7 @@ function Router() {
                 <Route path="/clock" component={Clock } exact />
                 <Route path="/todo" component={Todo} exact />
                 <Route path="/reducer" component={Reducer} />
+                <Route path="/callback" component={CallBack} />
                 <Route component={NotFound} />
             </Switch>
         {/* Switch chỉ nhận route đầu tiên được khai báo */}
