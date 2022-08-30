@@ -13,6 +13,8 @@ function Menu(props) {
                     <li><NavLink to="todo">Todo</NavLink></li>
                     <li><NavLink to="reducer">Reducer</NavLink></li>
                     <li><NavLink to="callback">CallBack</NavLink></li>
+                    <li><NavLink to="memo">Memo</NavLink></li>
+                    <li><NavLink to="custom-hook">CustomHook</NavLink></li>
                 </ul>
             </nav>
         </div>
