@@ -16,7 +16,7 @@ function Posts(props) {
         _page: 1,
         _limit: 10
     });
-    function handlePageChange(newpage){
+    function handlePageChange(newpage) {
         const newFilter = {
             ...filters,
             _page: newpage,
@@ -24,38 +24,38 @@ function Posts(props) {
         setFilters(newFilter);
     }
 
-    function hanleFilterSearch (value){
+    function hanleFilterSearch(value) {
         const newFilters = {
             ...filters,
-            _page:1,
+            _page: 1,
             title_like: value.value
         }
 
         setFilters(newFilters);
     }
 
-    try{
-    useEffect( () => {
-        async function fetchPostList () {
-            const paramString = queryString.stringify(filters);
-            const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramString}`;
-            const resoure = await fetch(requestUrl);
-            const resoureJOSN = await resoure.json();
-            const { data, pagination } = resoureJOSN;
-            setPostList(data)
-            setPagination(pagination)
-        }
+    try {
+        useEffect(() => {
+            async function fetchPostList() {
+                const paramString = queryString.stringify(filters);
+                const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramString}`;
+                const resoure = await fetch(requestUrl);
+                const resoureJOSN = await resoure.json();
+                const { data, pagination } = resoureJOSN;
+                setPostList(data)
+                setPagination(pagination)
+            }
 
-        fetchPostList();
-    }, [filters]);
-    } catch(error) {
+            fetchPostList();
+        }, [filters]);
+    } catch (error) {
         console.log('Failed to fetch post list: ', error.message)
     }
     return (
         <div>
-            <Clock/>
-            <SearchForm onSubmit={hanleFilterSearch}/>
-            <PostList posts={postList}/>
+            <Clock />
+            <SearchForm onSubmit={hanleFilterSearch} />
+            <PostList posts={postList} />
             <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </div>
     );
