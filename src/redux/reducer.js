@@ -17,7 +17,7 @@ const rootReducer = (state = initState, action) => {
             ...state,
             todoList:[
                 ...state.todoList,
-                {id: 4, name:'Learn Css', completed: true, priority: 'Medium'}
+                action.payload
             ]
         };
         default: return state;
