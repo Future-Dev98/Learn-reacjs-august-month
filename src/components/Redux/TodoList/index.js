@@ -12,21 +12,23 @@ export default function TodoList() {
   const [todoName, setTodoName] = useState('');
   const [priority, setPriority] = useState('Medium');
   const hanleAddButtonClick = () => {
-    return dispatch(
+    dispatch(
       addTodo({
         id: uuidv4(),
         name:todoName,
         completed: false,
-        prioriry: priority
+        priority: priority
       })
     );
+    setTodoName('');
+    setPriority('Medium');
   }
   
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
         {todoList.map((todo, index) => {
-          return <Todo name={todo.name} prioriry={todo.prioriry} key={todo.id} />
+          return <Todo name={todo.name} priority={todo.priority} key={todo.id} />
         })}
       </Col>
       <Col span={24}>
