@@ -1,14 +1,14 @@
 import { Col, Row, Input, Button, Select, Tag } from 'antd';
 import Todo from '../Todo';
 import {addTodo} from '../../../redux/actions';
-import { todoListSelector } from '../../../redux/selectors';
+import { todoListSelector, todosRemainingSelector } from '../../../redux/selectors';
 import {v4 as uuidv4} from 'uuid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function TodoList() {
   const dispatch = useDispatch();
-  const todoList = useSelector(state => todoListSelector(state));
+  const todoList = useSelector(todosRemainingSelector);
   const [todoName, setTodoName] = useState('');
   const [priority, setPriority] = useState('Medium');
   const hanleAddButtonClick = () => {
