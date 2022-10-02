@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, {useState, useCallback} from 'react';
 import TodoList from './TodoList';
 
 function CallBack(props) {
@@ -6,11 +6,13 @@ function CallBack(props) {
     const [count, setCount] = useState(0);
 
     const addtodo = useCallback(() => {
-        setTodolist(t => [...t, 'New Todo']);
+        setTodolist(t => [
+            ...t,
+            'New Todo'
+        ]);
     }, [Todolist])
 
-    function increase () 
-    {
+    function increase() {
         setCount((x) => x + 1);
     }
     return (
