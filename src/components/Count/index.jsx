@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef, useEffect } from 'react';
+import {useState, useRef, useEffect} from 'react';
 
 function Count(props) {
     const [count, setCount] = useState(0);
@@ -7,7 +7,7 @@ function Count(props) {
 
     useEffect(() => {
         Previous.current = count;
-    },[count]);
+    }, [count]);
 
     const handleClickIncrease = () => {
         setCount(x => x + 1);
@@ -20,7 +20,7 @@ function Count(props) {
             <div>
                 <button onClick={handleClickIncrease}>Increase</button>
             </div>
-            
+
         </div>
     );
 }

@@ -5,9 +5,11 @@ import './MagicBox.scss';
 function MagicBox(props) {
     const color = useMagicColor();
     return (
-        <div 
-        className='magic-box' 
-        style={{backgroundColor:color}}>MagicBox</div>
+        <div
+            className='magic-box'
+            style={{
+                backgroundColor: color
+            }}>MagicBox</div>
     );
 }
 

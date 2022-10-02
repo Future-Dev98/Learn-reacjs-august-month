@@ -1,11 +1,4 @@
-import {
-    Col,
-    Row,
-    Input,
-    Button,
-    Select,
-    Tag
-} from 'antd';
+import { Col, Row, Input, Button, Select, Tag} from 'antd';
 import Todo from '../Todo';
 import {addTodo} from '../../../redux/actions';
 import {todosRemainingSelector} from '../../../redux/selectors';
@@ -20,7 +13,11 @@ export default function TodoList() {
     const [priority, setPriority] = useState('Medium');
     const hanleAddButtonClick = () => {
         dispatch(
-            addTodo({id: uuidv4(), name: todoName, completed: false, priority: priority})
+            addTodo({
+              id: uuidv4(), 
+              name: todoName, 
+              completed: false, 
+              priority: priority})
         );
         setTodoName('');
         setPriority('Medium');
@@ -38,7 +35,11 @@ export default function TodoList() {
                 }}>
                 {
                     todoList.map((todo, index) => {
-                        return <Todo name={todo.name} priority={todo.priority} key={todo.id}/>
+                        return <Todo
+                            name={todo.name}
+                            priority={todo.priority}
+                            key={todo.id}
+                            completed={todo.completed}/>
                     })
                 }
             </Col>
@@ -48,8 +49,11 @@ export default function TodoList() {
                         display: 'flex'
                     }}
                     compact="compact">
-                    <Input value={todoName} onChange={(e) => setTodoName(e.target.value)}/>
-                    <Select defaultValue="Medium" value={priority} onChange={(e) => setPriority(e)}>
+                    <Input value={todoName} 
+                           onChange={(e) => setTodoName(e.target.value)}/>
+                    <Select defaultValue="Medium" 
+                            value={priority} 
+                            onChange={(e) => setPriority(e)}>
                         <Select.Option value='High' label='High'>
                             <Tag color='red'>High</Tag>
                         </Select.Option>

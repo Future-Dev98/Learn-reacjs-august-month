@@ -10,6 +10,11 @@ const filtersReducer = (state = initState, action) => {
                 ...state,
                 search: action.payload
             };
+        case 'status':
+            return {
+                ...state,
+                status: action.payload
+            };
         default:
             return state;
     }

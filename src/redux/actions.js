@@ -5,3 +5,7 @@ export const addTodo = (data) => {
 export const searchFilterChange = (text) => {
     return {type: 'search', payload: text}
 }
+
+export const statusFilterChange = (status) => {
+    return {type: 'status', payload: status}
+}

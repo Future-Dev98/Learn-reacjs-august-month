@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import productApi from '../../api/productApi';
 
 function CallApi(props) {
@@ -9,11 +9,7 @@ function CallApi(props) {
         }
         fetchProducts();
     }, [])
-    return (
-        <div>
-            
-        </div>
-    );
+    return (<div></div>);
 }
 
 export default CallApi;
