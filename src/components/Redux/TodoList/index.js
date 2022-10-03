@@ -39,6 +39,7 @@ export default function TodoList() {
                             name={todo.name}
                             priority={todo.priority}
                             key={todo.id}
+                            id={todo.id}
                             completed={todo.completed}/>
                     })
                 }

@@ -4,14 +4,12 @@ const initState = [
         name: 'Learn Yoga',
         completed: false,
         priority: 'Medium'
-    },
-    {
+    }, {
         id: 2,
         name: 'Learn Reactjs',
         completed: true,
         priority: 'Hight'
-    },
-    {
+    }, {
         id: 3,
         name: 'Learn Javascript',
         completed: false,
@@ -25,6 +23,15 @@ const TodosReducer = (state = initState, action) => {
                 ...state,
                 action.payload
             ];
+        case 'toggle-status':
+            return state.map(
+                todo => todo.id === action.payload
+                    ? {
+                        ...todo,
+                        completed: !todo.completed
+                    }
+                    : todo
+            );
         default:
             return state;
     }

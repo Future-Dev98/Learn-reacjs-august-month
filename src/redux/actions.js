@@ -2,6 +2,10 @@ export const addTodo = (data) => {
     return {type: 'todolist/todo', payload: data}
 }
 
+export const todoToggleStatus = (id) => {
+    return {type: 'toggle-status', payload: id}
+}
+
 export const searchFilterChange = (text) => {
     return {type: 'search', payload: text}
 }
