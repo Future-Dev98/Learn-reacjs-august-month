@@ -13,3 +13,7 @@ export const searchFilterChange = (text) => {
 export const statusFilterChange = (status) => {
     return {type: 'status', payload: status}
 }
+
+export const prioritiesFilterChange = (priorities) => {
+    return {type: 'priorities', payload: priorities}
+}

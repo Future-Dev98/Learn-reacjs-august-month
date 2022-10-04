@@ -9,24 +9,45 @@ import {
 } from 'antd';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {statusFilterChange, searchFilterChange} from '../../../redux/actions';
+import {statusFilterChange, searchFilterChange, prioritiesFilterChange} from '../../../redux/actions';
 
 const {Search} = Input;
 
 export default function Filters() {
     const dispatch = useDispatch();
     const [searchText, setSearchText] = useState('');
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('All');
+    const [priority, setPriority] = useState(['Medium', 'High', 'Low']);
 
+    /**
+     * Handle search field
+     * 
+     * @param object e 
+     */
     const handleSearchOnChange = (e) => {
         setSearchText(e.target.value);
         dispatch(searchFilterChange(e.target.value));
     }
 
+    /**
+     * Handle status field
+     * 
+     * @param object e
+     */
     const handleStatusOnChange = (e) => {
       setStatus(e.target.value);
       dispatch(statusFilterChange(e.target.value))
     }
+
+    /**
+     * Handle Priority field
+     * 
+     * @param array e
+     */
+    const handlePrioritiesOnChange = (value) => {
+        setPriority(value);
+        dispatch(prioritiesFilterChange(value))
+      }
 
     return (
         <Row justify='center'>
@@ -53,7 +74,7 @@ export default function Filters() {
                     }}>
                     Filter By Status
                 </Typography.Paragraph>
-                <Radio.Group onChange={handleStatusOnChange}>
+                <Radio.Group onChange={handleStatusOnChange} value={status} >
                     <Radio value='All'>All</Radio>
                     <Radio value='Completed'>Completed</Radio>
                     <Radio value='Todo'>To do</Radio>
@@ -72,6 +93,8 @@ export default function Filters() {
                     mode='multiple'
                     allowClear="allowClear"
                     placeholder='Please select'
+                    value={priority}
+                    onChange={handlePrioritiesOnChange}
                     style={{
                         width: '100%'
                     }}>
