@@ -1,8 +1,12 @@
-import { legacy_createStore as createStore } from 'redux';
-import rootReducer from './reducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import filtersSlice from '../components/Redux/Filters/FiltersSlice';
+import todoSlice from '../components/Redux/TodoList/TodosSlice';
+import {configureStore} from '@reduxjs/toolkit';
 
-const composedEnHancers = composeWithDevTools();
-const store = createStore(rootReducer, composedEnHancers);
+const store = configureStore({
+    reducer: {
+        filters: filtersSlice.reducer,
+        todoList: todoSlice.reducer
+    }
+});
 
 export default store;

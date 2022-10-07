@@ -9,7 +9,7 @@ import {
 } from 'antd';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {statusFilterChange, searchFilterChange, prioritiesFilterChange} from '../../../redux/actions';
+import FiltersSlice from './FiltersSlice';
 
 const {Search} = Input;
 
@@ -26,7 +26,7 @@ export default function Filters() {
      */
     const handleSearchOnChange = (e) => {
         setSearchText(e.target.value);
-        dispatch(searchFilterChange(e.target.value));
+        dispatch(FiltersSlice.actions.searchFilterChange(e.target.value));
     }
 
     /**
@@ -36,7 +36,7 @@ export default function Filters() {
      */
     const handleStatusOnChange = (e) => {
       setStatus(e.target.value);
-      dispatch(statusFilterChange(e.target.value))
+      dispatch(FiltersSlice.actions.statusFilterChange(e.target.value))
     }
 
     /**
@@ -46,7 +46,7 @@ export default function Filters() {
      */
     const handlePrioritiesOnChange = (value) => {
         setPriority(value);
-        dispatch(prioritiesFilterChange(value))
+        dispatch(FiltersSlice.actions.prioritiesFilterChange(value))
       }
 
     return (
